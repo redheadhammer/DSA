@@ -1,12 +1,22 @@
-CFLAGS= -Wall -g -lm
+CFLAGS= -Wall -Wextra -g -lm
 
 SHELL=/bin/bash
-all:
-	echo "Nothing"
-# clean: SHELL:=/bin/bash
-clean:
-	rm -i !*.c|Makefile
 
-test:
-	rm valocity
+CFILES=$(wildcard *.c)
+OBJECTS=$(patsubst %.c,%,$(CFILES))
+
+all: $(OBJECTS)
+
+$(OBJECTS): $(CFILES)
+	gcc -o $@ $(patsubst %,%.c,$@)
+
+.PHONY: clean status
+
+clean:
+	rm -f $(OBJECTS)
+
+status:
+	@git status
+	@git diff --stat
+
 
