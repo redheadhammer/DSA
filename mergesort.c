@@ -15,6 +15,24 @@ int MERGE(int array[], int start, int newS, int end){
         R[i] = array[newS+i];
     }
 
+/*
+    for (int k = start; k < end; k++){
+        if (L[i] < R[j]){
+            if (i >= (newS-start)) {
+                printf("i: (%d) goes above newS-start: (%d)\n", i, (newS-start));
+            }
+            array[k] = L[i];
+            i++;
+        } else{
+            array[k] = R[j];
+            if (j >= (end-newS)) {
+                printf("j: (%d) goes above end-newS: (%d)\n", j, (end-newS));
+            }
+            j++;
+        }
+    }
+*/
+
     while ((i < newS-start) && (j < end-newS)) {
         if (L[i] < R[j]){
             array[start+k] = L[i];
@@ -36,6 +54,7 @@ int MERGE(int array[], int start, int newS, int end){
         j++;
         k++;
     }
+
     return 0;
 }
 
