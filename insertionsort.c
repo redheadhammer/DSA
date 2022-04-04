@@ -1,16 +1,6 @@
 
 #include <stdio.h>
-
-#define debug(M,...) fprintf(stderr, "[DEBUG] %s:%d:%s:  " M "\n", __FILE__, __LINE__, __FUNCTION__);
-
-// Time complexity: B-> O(n), A-> O(n^2), W-> O(n^2)
-
-void print(int array[],int size){
-    for (int i = 0; i< size; i++){
-        printf("%d ", array[i]);
-    }
-    puts("");
-}
+#include "./headers/tools.h"
 
 int insertionsort(int array[], int size){
     for (int i = 0; i < size-1; i++){
@@ -24,7 +14,6 @@ int insertionsort(int array[], int size){
     }
     return 0;
 }
-
 
 
 int insertion(int array[], int size){
@@ -48,7 +37,7 @@ int main(){
 
     int brray[] = {6,8,7,3,5,4,9,2,1};
     insertionsort(brray,9);
-    print(array, 9);
+    printA(array, 9);
 
     return 0;
 }

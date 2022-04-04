@@ -1,7 +1,6 @@
 
 #include <stdio.h>
-
-
+#include "./headers/tools.h"
 
 int selection_sort(int array[], int size){
     // invariant: array[index-1] is always sorted
@@ -19,15 +18,8 @@ int selection_sort(int array[], int size){
     return 0;
 }
 
-void print(int array[],int size){
-    for (int i = 0; i< size; i++){
-        printf("%d ", array[i]);
-    }
-    puts("");
-}
-
 int main(){
     int brray[] = {6,8,7,3,5,4,9,2,1};
     selection_sort(brray,9);
-    print(brray, 9);
+    printA(brray, 9);
 }
