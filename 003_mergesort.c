@@ -15,23 +15,19 @@ int MERGE(int array[], int start, int newS, int end){
         R[i] = array[newS+i];
     }
 
-/*
+
+    // invariant: array[k] holds the smaller values of L[k] and R[k]
+    // in sorted order.
     for (int k = start; k < end; k++){
         if (L[i] < R[j]){
-            if (i >= (newS-start)) {
-                printf("i: (%d) goes above newS-start: (%d)\n", i, (newS-start));
-            }
             array[k] = L[i];
             i++;
         } else{
             array[k] = R[j];
-            if (j >= (end-newS)) {
-                printf("j: (%d) goes above end-newS: (%d)\n", j, (end-newS));
-            }
             j++;
         }
     }
-*/
+
 
     while ((i < newS-start) && (j < end-newS)) {
         if (L[i] < R[j]){
@@ -121,11 +117,13 @@ int main(void)
     int array[] = {6,8,7,3,5,4,9,2,1};
     // 1st mergeSort where array is created in mergesort
     mergeSort(array, 9);
+    puts("1st MergeSort");
     printA(array, 9);
 
     int brray[] = {6,8,7,3,5,4,9,2,1};
     // 2nd mergeSort where array is created in MERGE
     MERGESORT(brray, 0, 9);
+    puts("2nd MergeSort");
     printA(brray, 9);
 }
 
