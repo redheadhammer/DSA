@@ -1,4 +1,5 @@
-CFLAGS=-Wall -g -lm
+CFLAGS=-Wall -Wextra -Werror -g -lm 
+# CFLAGS=-Wall -g -lm -fsanitize=address
 # one should use -ggdb flag when a file is imported
 
 SHELL=/bin/bash
