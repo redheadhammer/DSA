@@ -111,6 +111,10 @@ int MERGE(int *array, int start, int mid, int end) {
         indexR++;
     }
 
+    // free memory holding left-right arrays
+    if (arrayR) free(arrayR);
+    if (arrayL) free(arrayL);
+
     return 0;
 }
 
