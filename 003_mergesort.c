@@ -4,6 +4,9 @@
 
 #include "./headers/tools.h"
 
+// Time Complexity of this algorithm is O(n log(n))
+// But the problem with this algorithm is that it isn't a
+// in place algorithm but is a comparison sort algorithm 
 int merge(int* arrayL, int sizeL, int* arrayR, int sizeR, int* array){
     int indexL = 0, indexR = 0;
     
