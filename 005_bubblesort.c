@@ -8,7 +8,7 @@
 // This will take overall time complexity of O(n^2)
 int bubblesort(int array[], int size)
 {
-    // this loop is just a wrapper for operation each element
+    // this loop is just a wrapper for iterating each element
     for (int i = 0; i < size; i++) 
     {
         // this loop will be used to make swap for the 1st iteration
