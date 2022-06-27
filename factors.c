@@ -3,28 +3,31 @@
 #include "headers/tools.h"
 #include <stdlib.h>
 
-int* factors(int value)
+int factors(int value)
 {
-    int *values = malloc(sizeof(int)*100); 
-    values[0] = 1;
-    int index = 1;
-    for (int i = 2; i*i < value; i++)
+    for (int i = 1; i*i <= value; i++)
     {
         if (value % i == 0)
         {
-            values[index++] = i;
+            printf("%d ", i);
             if (i != (value/i))
-            {
-                values[index++] = (value/i);
-            }
+                printf("%d ", (value/i));
         }
     }
-    return values;
+    printf("\n");
+    return 0;
 }
 
-int main(void)
+int main(int argc, char *argv[])
 {
-    int value = 22;
-    int *array = factors(value);
-    printArray(array, 10);
+    if (argc != 2) {
+        printf("USAGE: ./factors <integer value>");
+        return 1;
+    }
+
+    int value;
+    if (sscanf(argv[1], "%d", &value) == EOF) return 1;
+    factors(value);
+
+    return 0;
 }
