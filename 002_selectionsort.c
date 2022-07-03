@@ -2,6 +2,7 @@
 #include <stdio.h>
 #include "./headers/tools.h"
 
+// find the index of the smallest element and place it at its deserving position
 // Time complexity will be O(n^2)
 int selection_sort(int array[], int size){
     // invariant: array[index-1] is always sorted
