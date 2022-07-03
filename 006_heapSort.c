@@ -51,7 +51,7 @@ void max_heapify(int *array, int node)
     }
 }
 
-void min_heap(int *array, int node)
+void min_heapify(int *array, int node)
 {
     // set right and left node
     int left = (node << 1) + 1;
@@ -74,7 +74,7 @@ void min_heap(int *array, int node)
         int tmp = array[node];
         array[node] = array[smallest];
         array[smallest] = tmp;
-        min_heap(array, smallest);
+        min_heapify(array, smallest);
     }
 }
 
@@ -114,6 +114,16 @@ void build_max_heap(int *array, int size)
         max_heapify(array, i);
 }
 
+void build_min_heap(int *array, int size)
+{
+    // LOOP INVARIANT: i+1, i+2 .... n are already root of a min-heap
+    for (int i = (size-1)>>1; i >= 0; i--)
+    {
+        min_heapify(array, i);
+    }
+}
+
+
 void swap(int *a, int *b)
 {
     int tmp = *a;
@@ -121,6 +131,8 @@ void swap(int *a, int *b)
     *b = tmp;
 }
 
+// to get the values in decreasing order replace build_max_heap with build_min_heap
+// than replace max_heapify with min_heapify in for loop
 void heapsort(int *array, int size)
 {
     HEAP_SIZE = size;
