@@ -2,6 +2,15 @@
 #include <stdio.h>
 #include "./headers/tools.h"
 
+/* Principle:-
+ * 1. Select an element from the array as key
+ * 2. Compare it with all the elements before it
+ * 3. if element under comparision is larger swap 
+ *    the element to the right
+ * 4. keep doing this until there comes an element which
+ *    is greater than place the key at that index
+ */
+
 // Recursive insertionSort
 void insertionsort(int array[], int size) {
     // base condition
@@ -29,7 +38,6 @@ int insertionSort(int array[], int size){
         int key = array[i];
         int index = i - 1;
         // change condition to (key > array[index] ..) for reversed values
-        // lessons for me: always check value range (for overflows)
         while (key < array[index] && index >= 0){
             array[index + 1] = array[index];
             index--;

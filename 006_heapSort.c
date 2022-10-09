@@ -3,7 +3,7 @@
 // like a binray tree (heap is used to create priority queues)
 
 // TO CALCULATE A PARENT OR CHILD USE BELOW CODE FOR 0 INDEXED ARRAY
-// PARENT = floor(i/2)
+// PARENT = floor(i/2)-1
 // LEFT CHILD = (2i+1)
 // RIGHT CHILD = (2i+2)
 
@@ -105,7 +105,6 @@ void MAX_HEAPIFY(int *array, int node)
 }
 
 // heapify can be used in bottom up manner to create a heap
-// worst time complexity for build_max_heap is O(nlog(n))
 // average time complexity for build_max_heap is O(n) (linear time)
 void build_max_heap(int *array, int size)
 {
@@ -137,6 +136,8 @@ void heapsort(int *array, int size)
 {
     HEAP_SIZE = size;
     build_max_heap(array, size);
+    // LOOP INVARIANT: Array[0 to i] is a max heap and Array[i+1 to n] 
+    // is already sorted and contains n-(i+1) largest elements from Array
     for (int i = size-1; i >= 1; i--)
     {
         swap(array, &array[i]);

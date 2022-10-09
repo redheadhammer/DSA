@@ -136,7 +136,8 @@ int MERGESORT(int *array, int start, int end) {
 int main(void)
 {
     int array[] = {8,6,7,4,3,5,9,2,1}; // size 9
-    int brray[] = {47,63,64,75,42,8,1}; // size 7 
+//    int brray[] = {47,63,64,75,42,8,1}; // size 7 
+    int brray[] = {123,65,76,48,2,7,1,54,763};
                                         //
     // 1st mergeSort where array is created in mergesort
     mergeSort(array, 9);
@@ -145,7 +146,7 @@ int main(void)
 
 
     // 2nd MergeSort where array is created in merge function 
-    MERGESORT(brray, 0, 7);
+    MERGESORT(brray, 0, 9);
     puts("2nd MergeSort");
     printArray(brray, 7);
 }
