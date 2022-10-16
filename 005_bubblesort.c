@@ -4,6 +4,11 @@
 
 #include "headers/tools.h"
 
+/* Principle:-
+ * It is based on principle of swapping adjacent elements
+ * if 1st is larger than 2nd element. This is inefficient 
+ * algorithm as it runs in O(n^2)
+ */
 
 // This will take overall time complexity of O(n^2)
 int bubblesort(int array[], int size)

@@ -2,6 +2,12 @@
 #include <stdio.h>
 #include "./headers/tools.h"
 
+/* Principle:-
+ * 1. find the smallest element from the array
+ * 2. Place it on 1st index.
+ * 3. Do similar for all the other elements
+ */
+
 // find the index of the smallest element and place it at its deserving position
 // Time complexity will be O(n^2)
 int selection_sort(int array[], int size){

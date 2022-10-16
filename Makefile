@@ -1,17 +1,20 @@
-CFLAGS=-Wall -Wextra -Werror -g -lm 
-# CFLAGS=-Wall -g -lm -fsanitize=address
+CFLAGS=-Wall -Wextra -g -lm 
+# CFLAGS=-Wall -g -lm -Werror -fsanitize=address
 # one should use -ggdb flag when a file is imported
 
 SHELL=/bin/bash
 
+BIN=./bin
+
 CFILES=$(wildcard *.c)
-OBJECTS=$(patsubst %.c,%,$(CFILES))
+TMPS=$(patsubst %.c,%,$(CFILES))
+OBJECTS=$(addprefix $(BIN)/, $(TMPS))
 
 .PHONY: clean status all
 
 all: $(OBJECTS)
 
-$(OBJECTS): %:%.c
+$(OBJECTS): $(BIN)/%:%.c
 	gcc $(CFLAGS) -o $@ $< 
 
 clean:
@@ -21,7 +24,7 @@ status:
 	@git status
 	@git diff --stat
 
-push: clean
+push:
 	git push
 #	git push -u DSA main
 	
