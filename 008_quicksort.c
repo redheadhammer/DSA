@@ -39,6 +39,11 @@ int partition(int *array, int start, int end)
     return fill;
 }
 
+
+// worst case time complexity of quicksort will be O(n^2)
+// and will occure when array is already in increasing order
+// or all the elements in array are same. this can be
+// avoided by selecting pivot randomly in partition function.
 void quicksort(int *array, int start, int end)
 {
     if (end-start > 1)
@@ -49,10 +54,25 @@ void quicksort(int *array, int start, int end)
     }
 }
 
+int random_part(int *array, int start, int end) {
+    int rand_ind = (rand() % (end-start)) + start;
+    swap(&array[end-1], &array[rand_ind]);
+    return partition(array, start, end);
+}
+
+void random_qsort(int *array, int start, int end) {
+    if (end-start > 0) {
+        int ind = random_part(array, start, end);
+        random_qsort(array, start, ind);
+        random_qsort(array, ind+1, end);
+    }
+}
+
 int main(void)
 {
     int array[] = {211, 184, 99, 155, 303, 192, 341, 235, 262, 119, 269, 228};
-    quicksort(array, 0, 12);
+    random_qsort(array, 0, 12);
+//    quicksort(array, 0, 12);
     for (int i = 0; i < 12; i++) printf("%d ", array[i]);
 
     puts(" ");
