@@ -68,6 +68,33 @@ void random_qsort(int *array, int start, int end) {
     }
 }
 
+void hoare_partition(int *array, int start, int end) {
+    int pivot = array[start];
+    int i = start+1;
+    int j = end-1;
+
+    while(true) {
+        // left pointer should have a value less
+        // than pivot otherwise move left pointer
+        while (array[i] <= pivot) {
+            i++;
+        }
+
+        // right pointer should have a value more
+        // than pivot otherwise move right pointer
+        while (array[j] >= pivot) {
+            j--;
+        }
+
+        if (i < j) {
+            swap(&array[i], &array[j]);
+        } else {
+            swap(&array[i], &array[start]);
+            return i;
+        }
+    }
+}
+
 int main(void)
 {
     int array[] = {211, 184, 99, 155, 303, 192, 341, 235, 262, 119, 269, 228};
