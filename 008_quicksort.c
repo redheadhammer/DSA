@@ -1,7 +1,7 @@
 
 #include <stdio.h>
 #include <stdlib.h>
-
+#include <stdbool.h>
 
 // it works by putting every element
 // at its right position from call
@@ -68,7 +68,7 @@ void random_qsort(int *array, int start, int end) {
     }
 }
 
-void hoare_partition(int *array, int start, int end) {
+int hoare_partition(int *array, int start, int end) {
     int pivot = array[start];
     int i = start+1;
     int j = end-1;
