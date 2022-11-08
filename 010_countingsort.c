@@ -45,8 +45,6 @@ int* count_sort2(int *array, int upper_bound, int size) {
     for (int i = 1; i <= upper_bound; i++) {
         count[i] += count[i-1];
     }
-    printf("Element indeces:- \n");
-    printArray(count, 10);
 
     // place the elements in result array.
     for (int i = size-1; i >= 0; i--) {

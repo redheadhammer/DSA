@@ -22,7 +22,7 @@ unsigned int hash(char *name){
 }
 
 int main(void){
-    char *array[7] = {"Values", "Karma", "Verma", "Hell", "Hound", "Dark", "Killings"};
+    char *array[] = {"Values", "Karma", "Verma", "Hell", "Hound", "Dark", "Killings"};
 
     for (int i = 0; i < 7; i++) printf("%s => %d\n", array[i], hash(array[i]));
     return 0;
