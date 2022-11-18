@@ -97,16 +97,14 @@ node* insert(node *head, int value) {
     head->value = value;
     head->parent = parent;
 
-    if (parent == NULL) {
-        return head;
-    }
+    if (parent == NULL);
     else if (parent->value > value) {
         parent->left = head;
     } else {
         parent->right = head;
     } 
 
-    return NULL;
+    return head;
 }
 
 void move_branch(node *root, node *to, node *with) {
